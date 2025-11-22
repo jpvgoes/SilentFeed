@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { MessageSquare, CheckCircle, Loader2, Sparkles } from 'lucide-react';
+import { useFeedback } from '../../context/FeedbackContext';
 
-const ClientPage = ({ onSubmitFeedback }) => {
+const ClientPage = () => {
+  const navigate = useNavigate();
+  const { addFeedback } = useFeedback();
   const [text, setText] = useState("");
   const [status, setStatus] = useState("idle"); // idle, analyzing, success, error
 
@@ -10,12 +14,16 @@ const ClientPage = ({ onSubmitFeedback }) => {
     setStatus("analyzing");
 
     try {
-      await onSubmitFeedback(text);
+      await addFeedback(text);
       setStatus("success");
     } catch (error) {
       console.error(error);
       setStatus("error");
     }
+  };
+
+  const handleViewDashboard = () => {
+    navigate('/dashboard');
   };
 
   return (
@@ -43,7 +51,7 @@ const ClientPage = ({ onSubmitFeedback }) => {
                 O Gemini processou seu texto e anonimizou os dados com sucesso.
               </p>
               <button 
-                onClick={() => onSubmitFeedback(null, true)} // true flag means "go to dashboard"
+                onClick={handleViewDashboard}
                 className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl transition-colors"
               >
                 Ver Visão do Gestor

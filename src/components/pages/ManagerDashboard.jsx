@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   BarChart3,
   MessageSquare,
@@ -22,11 +23,23 @@ import {
   Legend,
 } from 'recharts';
 import { COLORS } from '../../constants';
+import { useFeedback } from '../../context/FeedbackContext';
 import ExecutiveReportModal from '../ui/ExecutiveReportModal';
 import SmartReplyBox from '../ui/SmartReplyBox';
 
-const ManagerDashboard = ({ data, onReset }) => {
+const ManagerDashboard = () => {
+  const navigate = useNavigate();
+  const { feedbacks } = useFeedback();
+  const data = feedbacks;
   const [showReport, setShowReport] = useState(false);
+
+  const handleReset = () => {
+    navigate('/');
+  };
+
+  const handleNewFeedback = () => {
+    navigate('/feedback');
+  };
 
   // Cálculos para os gráficos
   const sentimentCounts = data.reduce((acc, item) => {
@@ -76,7 +89,7 @@ const ManagerDashboard = ({ data, onReset }) => {
       )}
 
       {/* Header do Dashboard */}
-      <header className="bg-white border-b border-slate-200 px-6 py-4 sticky top-0 z-10 shadow-sm">
+      <div className="bg-white border-b border-slate-200 px-6 py-4 shadow-sm">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-3">
             <div className="bg-indigo-600 p-2 rounded-lg text-white">
@@ -94,21 +107,9 @@ const ManagerDashboard = ({ data, onReset }) => {
             >
               <Sparkles size={14} /> Gerar Relatório Executivo
             </button>
-            <button
-              onClick={onReset}
-              className="text-sm text-slate-600 hover:text-indigo-600 font-medium px-3"
-            >
-              Sair
-            </button>
-            <button
-              onClick={() => window.location.reload()}
-              className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors"
-            >
-              Novo Feedback
-            </button>
           </div>
         </div>
-      </header>
+      </div>
 
       <main className="max-w-7xl mx-auto p-6 space-y-6">
         {/* KPI Cards */}

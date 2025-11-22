@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
   MessageSquare, 
   BarChart3, 
@@ -8,7 +9,14 @@ import {
   Sparkles 
 } from 'lucide-react';
 
-const HomePage = ({ onStart }) => (
+const HomePage = () => {
+  const navigate = useNavigate();
+
+  const handleStart = () => {
+    navigate('/feedback');
+  };
+
+  return (
   <div className="min-h-screen bg-slate-50 flex flex-col font-sans text-slate-900">
     <nav className="px-8 py-6 flex justify-between items-center bg-white shadow-sm">
       <div className="flex items-center gap-2">
@@ -18,7 +26,7 @@ const HomePage = ({ onStart }) => (
         <span className="font-bold text-xl tracking-tight">SilentFeed</span>
       </div>
       <button
-        onClick={onStart}
+        onClick={handleStart}
         className="text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors"
       >
         Acessar Demo
@@ -44,7 +52,7 @@ const HomePage = ({ onStart }) => (
       </p>
       
       <button 
-        onClick={onStart}
+        onClick={handleStart}
         className="group bg-indigo-600 hover:bg-indigo-700 text-white text-lg font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center gap-3 transform hover:-translate-y-1"
       >
         Experimentar Demo
@@ -87,6 +95,7 @@ const HomePage = ({ onStart }) => (
       © 2024 SilentFeed Demo. Powered by Google Gemini.
     </footer>
   </div>
-);
+  );
+};
 
 export default HomePage;

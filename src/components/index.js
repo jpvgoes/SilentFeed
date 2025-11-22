@@ -3,6 +3,9 @@ export { default as HomePage } from './pages/HomePage';
 export { default as ClientPage } from './pages/ClientPage';
 export { default as ManagerDashboard } from './pages/ManagerDashboard';
 
+// Layout
+export { default as Layout } from './layout/Layout';
+
 // UI Components
 export { default as SmartReplyBox } from './ui/SmartReplyBox';
 export { default as ExecutiveReportModal } from './ui/ExecutiveReportModal';
