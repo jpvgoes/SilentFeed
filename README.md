@@ -1,16 +1,93 @@
-# React + Vite
+# SilentFeed 🤫📊
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Coleta anônima. Insights reais. Decisões melhores.**
 
-Currently, two official plugins are available:
+SilentFeed é uma plataforma de feedback anônimo potencializada por IA que transforma opiniões brutas em insights estratégicos, mantendo a identidade dos colaboradores 100% protegida.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Funcionalidades
 
-## React Compiler
+- **🔒 Feedback 100% Anônimo**: Colaboradores enviam opiniões sem login ou identificação
+- **🧠 Análise Inteligente**: Integração com Google Gemini para categorização automática e análise de sentimento
+- **📈 Dashboard Estratégico**: Visualizações em tempo real com gráficos e métricas
+- **💡 Sugestões de Resposta**: IA gera respostas personalizadas para cada feedback
+- **📋 Relatórios Executivos**: Relatórios automáticos gerados por IA para tomada de decisão
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Tecnologias
 
-## Expanding the ESLint configuration
+- **Frontend**: React 19 + Vite
+- **Styling**: Tailwind CSS
+- **Roteamento**: React Router DOM
+- **Gráficos**: Recharts
+- **Ícones**: Lucide React
+- **IA**: Google Gemini API
+- **Estado**: Context API
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Instalação
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/seu-usuario/silentfeed.git
+cd silentfeed
+```
+
+2. Instale as dependências:
+```bash
+npm install
+```
+
+3. Configure as variáveis de ambiente:
+```bash
+cp .env.example .env
+```
+Adicione sua chave da API do Gemini no arquivo `.env`:
+```
+VITE_GEMINI_API_KEY=sua_chave_aqui
+```
+
+4. Execute o projeto:
+```bash
+npm run dev
+```
+
+## 📱 Como Usar
+
+1. **Página Inicial** (`/`): Apresentação do produto e suas funcionalidades
+2. **Envio de Feedback** (`/feedback`): Interface anônima para colaboradores
+3. **Dashboard** (`/dashboard`): Painel gerencial com análises e insights
+
+## 🏗️ Estrutura do Projeto
+
+```
+src/
+├── components/
+│   ├── pages/           # Páginas da aplicação
+│   ├── layout/          # Componentes de layout
+│   └── ui/              # Componentes de interface
+├── context/             # Context API para estado global
+├── utils/               # Utilitários e integração com APIs
+└── constants/           # Constantes e dados mock
+```
+
+## 🤖 Integração com IA
+
+O SilentFeed utiliza o Google Gemini para:
+- Análise automática de sentimento
+- Categorização de feedbacks
+- Geração de sugestões de resposta
+- Criação de relatórios executivos
+- Implementação de retry com exponential backoff
+
+## 🎯 Casos de Uso
+
+- **RH**: Pesquisas de clima organizacional
+- **Gestão**: Feedback sobre liderança e processos
+- **Produto**: Opiniões sobre ferramentas internas
+- **Estratégia**: Insights para tomada de decisão
+
+## 📄 Licença
+
+Este projeto é uma demonstração educacional. Consulte o arquivo LICENSE para mais detalhes.
+
+---
+
+**Desenvolvido com ❤️ usando React + Vite + Google Gemini**
